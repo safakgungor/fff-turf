@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>FFF Terms of Use</title>
+<meta name="description" content="The rules for posting in FFF, the zero-tolerance policy, reporting and blocking, and the subscription terms.">
+<meta name="theme-color" content="#000000">
+<style>
+  :root{
+    --bg:#000;
+    --card:#121214;
+    --card-2:#0a0a0b;
+    --volt:#C8FF2E;
+    --ink:#ffffff;
+    --muted:#8e8e97;
+    --line:#232327;
+  }
+  *,*::before,*::after{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,Helvetica,Arial,"Apple Color Emoji",sans-serif;
+    font-size:17px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+  a{color:var(--volt)}
+  a:hover{text-decoration:underline}
+
+  .wrap{max-width:720px;margin:0 auto;padding:0 24px;width:100%}
+
+  header{padding:22px 0;border-bottom:1px solid var(--line)}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px}
+  .mark{
+    display:inline-flex;align-items:center;gap:9px;
+    font-weight:900;font-style:italic;font-size:22px;
+    letter-spacing:-0.05em;color:var(--ink);text-decoration:none;
+  }
+  .mark .dot{width:9px;height:9px;background:var(--volt);border-radius:2px;transform:rotate(45deg) translateY(-1px)}
+  nav{display:flex;gap:22px;font-size:15px}
+  nav a{color:var(--muted);text-decoration:none}
+  nav a:hover{color:var(--ink);text-decoration:none}
+
+  main{padding:56px 0 24px}
+
+  /* ---------- document body ---------- */
+  .doc h1{
+    font-weight:900;font-style:italic;text-transform:uppercase;
+    letter-spacing:-0.035em;line-height:0.96;
+    font-size:clamp(34px,6.4vw,54px);
+    margin:0 0 28px;
+  }
+  .doc h2{
+    font-weight:900;font-style:italic;text-transform:uppercase;
+    letter-spacing:-0.025em;line-height:1.08;
+    font-size:clamp(21px,3.2vw,26px);
+    margin:52px 0 16px;
+    padding-top:26px;
+    border-top:1px solid var(--line);
+  }
+  .doc p{margin:0 0 18px;color:#d2d2d8}
+  .doc ul{margin:0 0 22px;padding:0;list-style:none}
+  .doc li{
+    position:relative;
+    padding-left:26px;
+    margin-bottom:12px;
+    color:#d2d2d8;
+  }
+  .doc li::before{
+    content:"";
+    position:absolute;
+    left:2px;top:0.72em;
+    width:9px;height:9px;
+    background:var(--volt);
+    opacity:0.85;
+    clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%);
+  }
+  .doc strong{color:var(--ink)}
+
+  .meta{
+    display:inline-block;
+    font-size:13px;font-weight:700;
+    letter-spacing:0.14em;text-transform:uppercase;
+    color:var(--volt);
+    border:1px solid rgba(200,255,46,0.32);
+    border-radius:999px;
+    padding:6px 13px;
+    margin:0 0 26px;
+  }
+
+  /* ---------- form ---------- */
+  form{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:20px;
+    padding:28px 26px 22px;
+    margin:0 0 30px;
+  }
+  form p{margin:0 0 18px}
+  form p:last-child{margin-bottom:6px}
+  label{
+    display:inline-block;
+    font-size:13px;font-weight:700;
+    letter-spacing:0.1em;text-transform:uppercase;
+    color:var(--muted);
+    margin-bottom:8px;
+  }
+  input[type=text],input[type=email],textarea{
+    display:block;
+    width:100%;
+    background:var(--card-2);
+    border:1px solid var(--line);
+    border-radius:12px;
+    color:var(--ink);
+    font:inherit;
+    font-size:16px;
+    padding:13px 14px;
+    outline:none;
+  }
+  input[type=text]:focus,input[type=email]:focus,textarea:focus{
+    border-color:var(--volt);
+    box-shadow:0 0 0 3px rgba(200,255,46,0.18);
+  }
+  textarea{resize:vertical;min-height:150px;line-height:1.55}
+  button[type=submit]{
+    background:var(--volt);
+    color:#000;
+    font-family:inherit;
+    font-weight:800;
+    font-size:16px;
+    letter-spacing:-0.01em;
+    border:none;
+    border-radius:14px;
+    padding:15px 30px;
+    cursor:pointer;
+  }
+  button[type=submit]:hover{background:#d8ff5c}
+
+  footer{
+    border-top:1px solid var(--line);
+    margin-top:56px;
+    padding:36px 0 56px;
+    color:var(--muted);
+    font-size:14px;
+  }
+  footer .wrap{display:flex;flex-wrap:wrap;gap:18px;justify-content:space-between;align-items:center}
+  .foot-links{display:flex;gap:22px}
+  .foot-links a{color:var(--muted);text-decoration:none}
+  .foot-links a:hover{color:var(--ink);text-decoration:none}
+
+  @media (max-width:700px){
+    main{padding:40px 0 16px}
+    .doc h2{margin-top:40px}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="mark" href="./"><span class="dot" aria-hidden="true"></span>FFF</a>
+    <nav>
+      <a href="./">Home</a>
+      <a href="privacy">Privacy</a>
+      <a href="support">Support</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap doc">
+    <h1>FFF Terms of Use</h1>
+
+    <p class="meta">Effective date: 25 July 2026</p>
+
+    <p>This is the agreement between you and the person who makes FFF. It replaces the standard licence agreement that used to sit behind the "Terms of Use" link, because FFF now lets you post photos and text where other players can see them, and that needs rules written in plain words rather than borrowed ones. Read the short version if you read nothing else. By tapping "I agree" in the app, or by using FFF at all, you accept these terms.</p>
+
+    <h2>The short version</h2>
+
+    <ul>
+    <li>There is zero tolerance for objectionable content or abusive behaviour in FFF.</li>
+    <li>Post only photos you took or own, of things you have the right to show. Nothing sexual, nothing hateful, nothing violent, nothing illegal, and no photographs of other people who have not agreed to be posted.</li>
+    <li>Anyone can report any photo, any post and any player, from the item itself, in two taps. Every report is reviewed and acted on within 24 hours.</li>
+    <li>Anyone can block any player instantly, without reporting them and without telling them.</li>
+    <li>Content that breaks these rules is removed. Accounts that keep breaking them are ejected from the shared map, permanently, without a refund from us.</li>
+    <li>Your photos stay yours. You give FFF only the permission it needs to show them inside the app.</li>
+    <li>Nothing in FFF rewards speed. Do not touch the phone while you are driving.</li>
+    </ul>
+
+    <h2>Who you are agreeing with</h2>
+
+    <p>FFF is built and run by one independent developer, Safak Gungor, based in Istanbul, Türkiye. Contact: <a href="mailto:fff.turf.app@gmail.com">fff.turf.app@gmail.com</a>. That address is read by a human, and it is the address for complaints, takedowns, data requests and anything else on this page.</p>
+
+    <p>This agreement is between you and that developer. It is not with Apple. Apple is not responsible for FFF or for anything in it. There is more about Apple's position at the bottom of this page, and it matters, so it is written out in full rather than linked away.</p>
+
+    <h2>Zero tolerance for objectionable content and abusive users</h2>
+
+    <p><strong>FFF has zero tolerance for objectionable content and for abusive users.</strong> There is no warning system for the serious cases, no strike count to run down and no appeal that keeps the content up while it runs. If you post something that breaks the rules below, it is removed. If you use FFF to harass, threaten, impersonate or endanger another person, your access to the shared map ends.</p>
+
+    <p>This applies to everything a player writes or uploads: display names, handles, vehicle nicknames, profile photos, vehicle photos, feed posts and anything attached to them.</p>
+
+    <h2>What you may not post</h2>
+
+    <p>Do not upload, post or send any of the following. This list is not a technicality. It is the thing this app will be judged on.</p>
+
+    <ul>
+    <li>Sexual content, nudity, or anything sexualised. There is no artistic exception and no "it was a joke" exception.</li>
+    <li>Any image of a child in a sexual or exploitative context. This is reported to the authorities, not just deleted, and the account is ended permanently and immediately.</li>
+    <li>Hate speech, or attacks on a person or group because of race, ethnicity, national origin, religion, disability, gender, age, sexual orientation or gender identity.</li>
+    <li>Harassment, threats, stalking, doxxing, or posting anyone's home address, workplace, phone number, licence plate or anything else that helps a stranger find them.</li>
+    <li>Graphic violence, gore, self harm, or the encouragement of any of it.</li>
+    <li>Photographs of other people who have not agreed to appear in FFF. If a face is recognisable and the person has not said yes, do not post it. Children's faces are never acceptable, including your own children.</li>
+    <li>Photographs you did not take and do not have the rights to, including images pulled from the web, from a manufacturer's press kit, from a dealer listing or from another player's profile.</li>
+    <li>Anything illegal where you are, anything promoting illegal drugs or weapons, and anything advertising a scam, a giveaway or a service.</li>
+    <li>Photographs or posts that celebrate dangerous driving. Speedometers, drag races, street racing, riding without a helmet, filming while driving. FFF does not rank speed and it will not host content that glorifies it.</li>
+    <li>Impersonating another player, a real person, a company or the developer.</li>
+    <li>Spam, bulk posting, automated posting, or content that has nothing to do with the game.</li>
+    <li>Cheating, faked GPS, modified builds, or any attempt to claim territory you did not physically cover.</li>
+    </ul>
+
+    <p>Photos are checked automatically before they appear to anyone, and they can be checked again by a human at any time afterwards. A photo that fails the automatic check is never published. Passing the automatic check is not approval, and it does not stop a photo being removed later.</p>
+
+    <h2>Reporting, and the 24 hour commitment</h2>
+
+    <p>Every photo, every post, every comment and every player name in FFF carries a report control. On a photo it is the "..." button in the top right corner of the image. On a player it is inside the player sheet, which opens when you tap their name anywhere in the app.</p>
+
+    <p><strong>Every report is reviewed and acted on within 24 hours of being received.</strong> Reported content is hidden from the person who reported it the moment they report it, so no one has to keep looking at something while it is being dealt with. Where the report is upheld, the content is removed and the account behind it is warned, suspended or ended, depending on what it did. Where a report involves a child, it is escalated immediately and reported to the relevant authorities.</p>
+
+    <p>You can also email <a href="mailto:fff.turf.app@gmail.com">fff.turf.app@gmail.com</a> about anything in the app, including content you found upsetting, content you believe infringes your copyright, and photographs of yourself that you did not agree to. Say what it is and where you saw it and it will be handled on the same 24 hour clock.</p>
+
+    <p>Reports made in bad faith, in volume, or as a way of attacking another player are themselves a breach of these terms.</p>
+
+    <h2>Blocking</h2>
+
+    <p>Open any player's sheet, tap Block, and they are gone. Their territory colour, their handle, their profile, their photos and their posts stop appearing for you, on the map, in the feed and on the leaderboard, at once. They are not told. You can unblock from Settings. Blocking is free for everybody, forever, and it is not part of any subscription.</p>
+
+    <h2>Your photos stay yours</h2>
+
+    <p>You keep every right you already had in the photos and words you upload. You are not selling them to FFF and FFF does not claim them.</p>
+
+    <p>What you do give is the narrow permission needed to run the app: a non exclusive, worldwide, royalty free licence to store your content, to re-encode and resize it, and to display it inside FFF to the players you posted it to, for as long as you keep it posted. That licence ends when you delete the content or your account, except for copies already held in backups, which age out, and copies retained for a safety investigation, which are covered in the Privacy Policy.</p>
+
+    <p>Two things follow from that. Your uploads are stripped of their embedded metadata on the server before anyone sees them, including the GPS coordinates a phone writes into a photo, so posting a picture of your car outside your house does not publish your address. And nothing you post is used to train anything, sold to anyone, or shown outside FFF.</p>
+
+    <p>You are responsible for having the right to post what you post. If you upload someone else's photograph, that is on you, not on FFF.</p>
+
+    <h2>Age</h2>
+
+    <p>FFF is for players aged 13 and over, or over the age of digital consent where you live, which is 16 in some European countries, unless a parent or guardian agrees on your behalf. If you are under that age, do not use FFF. Accounts found to belong to children under 13 are deleted.</p>
+
+    <h2>The game, and the road</h2>
+
+    <p>FFF measures ground covered. It does not measure speed, it does not rank speed and it never will. No hexagon is worth a collision.</p>
+
+    <p>Start your activity before you set off. Put the phone in a mount or a pocket. Do not touch it, do not read the feed and do not take photographs while you are driving or riding. Obey every traffic law and every local rule about where you can walk, ride and drive. You are responsible for how you move. FFF is a game layered on real streets, and the streets do not care that you are playing.</p>
+
+    <h2>FFF PRO and subscriptions</h2>
+
+    <p>The game itself is free and stays free: recording, claiming, stealing, being stolen from, the alerts, the leaderboard, reporting, blocking and deleting your account. FFF PRO is an optional auto-renewing subscription that adds memory, identity and intel. It does not make anyone faster, safer or harder to steal from.</p>
+
+    <ul>
+    <li>Payment is charged to your Apple Account when you confirm the purchase.</li>
+    <li>A subscription renews automatically for the same period and price unless auto-renew is turned off at least 24 hours before the current period ends.</li>
+    <li>Your account is charged for renewal within 24 hours before the end of the current period.</li>
+    <li>You manage and cancel subscriptions in your Apple Account settings, not in FFF.</li>
+    <li>If a free trial is offered, any unused part of it is lost when you buy a subscription.</li>
+    <li>Prices are shown in your local currency in the app before you confirm anything, and can change with notice for future periods.</li>
+    </ul>
+
+    <p>Refunds are handled by Apple under Apple's terms, not by us. An account ended for breaking these terms is not refunded by us, and losing access to FFF PRO is part of what being ejected means.</p>
+
+    <h2>Ending it</h2>
+
+    <p>You can leave at any time. Settings, then "Delete my account and data". Everything on the server and on your phone goes, your territory is released, and there is no login, so nothing can be restored afterwards.</p>
+
+    <p>We can end your access, without notice, if you break these terms. Serious breaches, meaning anything in the child safety, sexual content, hate or threat categories, end an account permanently on the first occurrence. Creating a new account to get around an ending is itself a breach.</p>
+
+    <h2>No warranty, and the limits of what we owe you</h2>
+
+    <p>FFF is provided as it is, without warranty of any kind, express or implied, including any implied warranty of merchantability, fitness for a particular purpose or non-infringement. GPS is a guess, maps are approximations, hexagons will sometimes disagree with your memory of where you drove, and the app will sometimes be unavailable.</p>
+
+    <p>To the maximum extent the law allows, the developer is not liable for indirect, incidental, special or consequential damages, for lost territory, lost streaks, lost data or lost subscription time, and total liability for any claim is limited to the amount you paid for FFF in the twelve months before the claim. Nothing here limits liability for death or personal injury caused by negligence, for fraud, or anything else that cannot be limited by law. If you are a consumer, you keep every right your local consumer law gives you.</p>
+
+    <p>Content posted by other players is theirs, not ours. We are not responsible for it, we do not endorse it, and we ask you to report it rather than answer it.</p>
+
+    <h2>Apple's part in this</h2>
+
+    <p>Apple requires these terms to be spelled out when a developer writes their own agreement instead of using Apple's standard one, and they are set out here in full.</p>
+
+    <ul>
+    <li>This agreement is between you and Safak Gungor only, and not with Apple. Apple is not responsible for FFF or its content.</li>
+    <li>The licence granted to you for FFF is a non-transferable licence to use FFF on any Apple-branded product that you own or control, as permitted by the Usage Rules in the Apple Media Services Terms and Conditions, except that FFF may be accessed by other accounts associated with you via Family Sharing or volume purchasing.</li>
+    <li>Apple has no obligation whatsoever to furnish any maintenance and support services for FFF. Maintenance and support are the developer's sole responsibility, at <a href="mailto:fff.turf.app@gmail.com">fff.turf.app@gmail.com</a>.</li>
+    <li>The developer is solely responsible for any product warranties, whether express or implied by law, to the extent not effectively disclaimed. If FFF fails to conform to any applicable warranty, you may notify Apple, and Apple will refund the purchase price of FFF to you. To the maximum extent permitted by applicable law, Apple will have no other warranty obligation whatsoever with respect to FFF.</li>
+    <li>The developer, not Apple, is responsible for addressing any claims relating to FFF or your possession and use of it, including product liability claims, any claim that FFF fails to conform to any applicable legal or regulatory requirement, and claims arising under consumer protection, privacy or similar legislation.</li>
+    <li>The developer, not Apple, is solely responsible for the investigation, defence, settlement and discharge of any third party claim that FFF or your possession and use of it infringes that third party's intellectual property rights.</li>
+    <li>You represent and warrant that you are not located in a country that is subject to a U.S. Government embargo, or that has been designated by the U.S. Government as a "terrorist supporting" country, and that you are not listed on any U.S. Government list of prohibited or restricted parties.</li>
+    <li>You must comply with applicable third party terms of agreement when using FFF, including your wireless data service agreement.</li>
+    <li>Apple and Apple's subsidiaries are third party beneficiaries of this agreement, and upon your acceptance of it Apple will have the right, and is deemed to have accepted the right, to enforce this agreement against you as a third party beneficiary of it.</li>
+    </ul>
+
+    <h2>Law and disputes</h2>
+
+    <p>These terms are governed by the law of Türkiye, and the courts of Istanbul have jurisdiction, except where your local consumer law gives you the right to bring a claim where you live, in which case that right stands. If any part of these terms is unenforceable, the rest of them still apply.</p>
+
+    <h2>Changes</h2>
+
+    <p>If these terms change, the new version appears here with a new effective date, and any change that meaningfully affects your rights is shown in the app before it takes effect. Continuing to use FFF after that means you accept the new version.</p>
+
+    <h2>Contact</h2>
+
+    <p>fff.turf.app@gmail.com. One person reads it, usually the same day, and always within 24 hours for anything about another player's content.</p>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; 2026 Safak Gungor. Built by one person.</span>
+    <span class="foot-links">
+      <a href="./">Home</a>
+      <a href="privacy">Privacy</a>
+      <a href="support">Support</a>
+    </span>
+  </div>
+</footer>
+
+</body>
+</html>
