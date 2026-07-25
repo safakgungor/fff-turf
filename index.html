@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>FFF — GPS Territory Game</title>
+<meta name="description" content="FFF is a territory game played on the real streets around you. Move through a hexagon and it turns your colour.">
+<meta name="theme-color" content="#000000">
+<style>
+  :root{
+    --bg:#000;
+    --card:#121214;
+    --card-2:#0a0a0b;
+    --volt:#C8FF2E;
+    --ink:#ffffff;
+    --muted:#8e8e97;
+    --line:#232327;
+    --rust:#5c5c62;
+  }
+  *,*::before,*::after{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,Helvetica,Arial,"Apple Color Emoji",sans-serif;
+    font-size:17px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+    overflow-x:hidden;
+  }
+  a{color:var(--volt);text-decoration:none}
+  a:hover{text-decoration:underline}
+
+  .display{
+    font-weight:900;
+    font-style:italic;
+    text-transform:uppercase;
+    letter-spacing:-0.035em;
+    line-height:0.94;
+    margin:0;
+  }
+
+  .wrap{max-width:1040px;margin:0 auto;padding:0 24px;width:100%}
+
+  /* ---------- header ---------- */
+  header{
+    position:relative;
+    z-index:2;
+    padding:22px 0;
+    border-bottom:1px solid var(--line);
+  }
+  header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px}
+  .mark{
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+    font-weight:900;
+    font-style:italic;
+    font-size:22px;
+    letter-spacing:-0.05em;
+    color:var(--ink);
+  }
+  .mark:hover{text-decoration:none}
+  .mark .dot{
+    width:9px;height:9px;
+    background:var(--volt);
+    border-radius:2px;
+    transform:rotate(45deg) translateY(-1px);
+  }
+  nav{display:flex;gap:22px;font-size:15px}
+  nav a{color:var(--muted)}
+  nav a:hover{color:var(--ink);text-decoration:none}
+
+  /* ---------- hero ---------- */
+  .hero{position:relative;overflow:hidden;padding:86px 0 74px}
+  .hero-bg{
+    position:absolute;inset:0;
+    pointer-events:none;
+    z-index:0;
+  }
+  .hex-grid{
+    position:absolute;
+    top:-40px;left:50%;
+    transform:translateX(-50%);
+    width:1600px;height:620px;
+    opacity:0.5;
+    -webkit-mask-image:radial-gradient(120% 88% at 50% 8%, #000 0%, rgba(0,0,0,0.55) 42%, transparent 78%);
+    mask-image:radial-gradient(120% 88% at 50% 8%, #000 0%, rgba(0,0,0,0.55) 42%, transparent 78%);
+  }
+  .glow{
+    position:absolute;
+    top:-260px;left:50%;
+    transform:translateX(-50%);
+    width:900px;height:620px;
+    background:radial-gradient(closest-side, rgba(200,255,46,0.16), rgba(200,255,46,0.04) 55%, transparent 100%);
+  }
+  .hero .wrap{position:relative;z-index:1}
+  .eyebrow{
+    display:inline-block;
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    color:var(--volt);
+    border:1px solid rgba(200,255,46,0.32);
+    border-radius:999px;
+    padding:6px 13px;
+    margin-bottom:26px;
+  }
+  h1{font-size:clamp(44px,8.4vw,84px);max-width:14ch}
+  h1 em{font-style:italic;color:var(--volt)}
+  .lede{
+    margin:26px 0 0;
+    font-size:clamp(18px,2.4vw,21px);
+    color:#d6d6db;
+    max-width:56ch;
+  }
+  .cta-row{display:flex;flex-wrap:wrap;align-items:center;gap:16px;margin-top:36px}
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    background:var(--volt);
+    color:#000;
+    font-weight:800;
+    font-size:16px;
+    letter-spacing:-0.01em;
+    padding:15px 26px;
+    border-radius:14px;
+    border:none;
+  }
+  .btn:hover{text-decoration:none;background:#d8ff5c}
+  .btn svg{display:block}
+  .cta-note{font-size:14px;color:var(--muted)}
+
+  /* ---------- features ---------- */
+  section{padding:74px 0}
+  .section-head{margin-bottom:36px}
+  .section-head h2{font-size:clamp(28px,4.6vw,42px)}
+  .section-head p{color:var(--muted);margin:14px 0 0;max-width:52ch}
+
+  .cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+  }
+  .card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:20px;
+    padding:28px 26px 30px;
+  }
+  .card h3{
+    font-weight:900;
+    font-style:italic;
+    text-transform:uppercase;
+    letter-spacing:-0.025em;
+    font-size:22px;
+    line-height:1.05;
+    margin:18px 0 12px;
+  }
+  .card p{margin:0;color:#b6b6be;font-size:16px}
+  .card .num{
+    font-size:12px;
+    font-weight:800;
+    letter-spacing:0.16em;
+    color:var(--muted);
+  }
+  .icon{display:block;margin-top:16px}
+
+  /* ---------- closing ---------- */
+  .closer{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:24px;
+    padding:46px 40px;
+    text-align:center;
+  }
+  .closer h2{font-size:clamp(26px,4.4vw,40px);max-width:20ch;margin:0 auto}
+  .closer p{color:var(--muted);max-width:46ch;margin:18px auto 0}
+  .closer .cta-row{justify-content:center}
+
+  /* ---------- footer ---------- */
+  footer{
+    border-top:1px solid var(--line);
+    padding:40px 0 56px;
+    color:var(--muted);
+    font-size:14px;
+  }
+  footer .wrap{display:flex;flex-wrap:wrap;gap:18px;justify-content:space-between;align-items:center}
+  .foot-links{display:flex;gap:22px}
+  .foot-links a{color:var(--muted)}
+  .foot-links a:hover{color:var(--ink);text-decoration:none}
+  .safety{
+    margin-top:26px;
+    padding-top:22px;
+    border-top:1px solid var(--line);
+    color:#6f6f78;
+    font-size:13px;
+    max-width:62ch;
+  }
+
+  @media (max-width:860px){
+    .cards{grid-template-columns:1fr}
+    .hero{padding:62px 0 54px}
+    section{padding:56px 0}
+    .closer{padding:36px 24px}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="mark" href="/"><span class="dot" aria-hidden="true"></span>FFF</a>
+    <nav>
+      <a href="/support">Support</a>
+      <a href="/privacy">Privacy</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="hero">
+    <div class="hero-bg" aria-hidden="true">
+      <div class="glow"></div>
+      <svg class="hex-grid" viewBox="0 0 1600 620" preserveAspectRatio="xMidYMin slice" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <pattern id="hex" width="55.4256" height="96" patternUnits="userSpaceOnUse">
+            <g fill="none" stroke="#C8FF2E" stroke-opacity="0.20" stroke-width="1">
+              <path d="M27.7128,-16 L55.4256,0 L55.4256,32 L27.7128,48 L0,32 L0,0 Z"/>
+              <path d="M0,32 L27.7128,48 L27.7128,80 L0,96 L-27.7128,80 L-27.7128,48 Z"/>
+              <path d="M55.4256,32 L83.1384,48 L83.1384,80 L55.4256,96 L27.7128,80 L27.7128,48 Z"/>
+            </g>
+          </pattern>
+        </defs>
+        <rect width="1600" height="620" fill="url(#hex)"/>
+        <g fill="#C8FF2E" fill-opacity="0.13">
+          <path d="M772.287,144 L800,160 L800,192 L772.287,208 L744.574,192 L744.574,160 Z"/>
+          <path d="M827.713,176 L855.426,192 L855.426,224 L827.713,240 L800,224 L800,192 Z"/>
+          <path d="M716.861,176 L744.574,192 L744.574,224 L716.861,240 L689.148,224 L689.148,192 Z"/>
+        </g>
+      </svg>
+    </div>
+
+    <div class="wrap">
+      <span class="eyebrow">GPS Territory Game</span>
+      <h1 class="display">Your city is a map full of <em>empty hexagons</em></h1>
+      <p class="lede">
+        FFF is a territory game played on the real streets around you: move through a hexagon and it
+        turns your colour, and everything after that is other people trying to take it off you.
+      </p>
+      <div class="cta-row">
+        <a class="btn" href="https://apps.apple.com/app/id6794489740">
+          <svg width="18" height="21" viewBox="0 0 18 21" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+            <path fill="currentColor" d="M14.94 11.06c-.02-2.2 1.8-3.26 1.88-3.31-1.02-1.5-2.62-1.7-3.19-1.72-1.36-.14-2.65.8-3.34.8-.69 0-1.75-.78-2.88-.76-1.48.02-2.85.86-3.61 2.18-1.54 2.67-.39 6.62 1.11 8.79.73 1.06 1.6 2.25 2.74 2.21 1.1-.04 1.52-.71 2.85-.71 1.33 0 1.71.71 2.87.69 1.19-.02 1.94-1.08 2.67-2.14.84-1.23 1.19-2.42 1.21-2.48-.03-.01-2.32-.89-2.34-3.55zM12.76 4.6c.61-.74 1.02-1.77.91-2.8-.88.04-1.94.59-2.57 1.32-.56.65-1.05 1.7-.92 2.7.98.08 1.98-.5 2.58-1.22z"/>
+          </svg>
+          Get FFF on the App Store
+        </a>
+        <span class="cta-note">Free. No sign up, no email, no password.</span>
+      </div>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <h2 class="display">How the map changes hands</h2>
+        <p>Three rules. That is the whole game.</p>
+      </div>
+
+      <div class="cards">
+        <article class="card">
+          <span class="num">01</span>
+          <svg class="icon" width="34" height="38" viewBox="0 0 34 38" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17 1.5 L32.6 10.25 L32.6 27.75 L17 36.5 L1.4 27.75 L1.4 10.25 Z" fill="#C8FF2E" fill-opacity="0.16" stroke="#C8FF2E" stroke-width="1.6"/>
+          </svg>
+          <h3>Claim it by moving</h3>
+          <p>
+            Press GO and every hexagon your route touches gets claimed in your name, on foot, on a bike
+            or on the road. Each one is about 0.1 square kilometres. There is nothing to tap. You just
+            have to actually be there.
+          </p>
+        </article>
+
+        <article class="card">
+          <span class="num">02</span>
+          <svg class="icon" width="34" height="38" viewBox="0 0 34 38" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17 1.5 L32.6 10.25 L32.6 27.75 L17 36.5 L1.4 27.75 L1.4 10.25 Z" fill="#C8FF2E" fill-opacity="0.16" stroke="#C8FF2E" stroke-width="1.6"/>
+            <path d="M17 1.5 L32.6 10.25 L32.6 27.75 L17 36.5 Z" fill="#FF4D4D" fill-opacity="0.5"/>
+          </svg>
+          <h3>Rivals steal it back</h3>
+          <p>
+            Cross ground someone else holds and it flips to you. Their phone buzzes with your handle on
+            it: two hexes gone, come and take them back. Most of them do. That is where the game
+            actually lives.
+          </p>
+        </article>
+
+        <article class="card">
+          <span class="num">03</span>
+          <svg class="icon" width="34" height="38" viewBox="0 0 34 38" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17 1.5 L32.6 10.25 L32.6 27.75 L17 36.5 L1.4 27.75 L1.4 10.25 Z" fill="#5c5c62" fill-opacity="0.28" stroke="#5c5c62" stroke-width="1.6" stroke-dasharray="4 3"/>
+          </svg>
+          <h3>The Rust takes what you neglect</h3>
+          <p>
+            A hexagon lives seven days. Pass back through your own ground and it holds for longer.
+            Forget about it and The Rust gets it: grey ruins owned by nobody, free for anyone to
+            reclaim. You get one warning the night before.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="closer">
+        <h2 class="display">Nothing you claim stays yours</h2>
+        <p>
+          One shared map, an area leaderboard ranked on ground held, and a record of everything you
+          have ever taken. Go and claim the boring hexagons near your door while nobody is paying
+          attention.
+        </p>
+        <div class="cta-row">
+          <a class="btn" href="https://apps.apple.com/app/id6794489740">Get FFF on the App Store</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; 2026 Safak Gungor. Built by one person.</span>
+    <span class="foot-links">
+      <a href="/privacy">Privacy</a>
+      <a href="/support">Support</a>
+    </span>
+  </div>
+  <div class="wrap">
+    <p class="safety">
+      Look up more than you look down. Follow traffic rules and local law wherever you are playing.
+      FFF scores territory, distance and streaks only, and no hexagon is worth getting hurt over.
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>
